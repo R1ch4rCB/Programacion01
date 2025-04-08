@@ -9,7 +9,7 @@ package umg.edu.gt.progra1.programacion.impl.dto;
  * @author wcord
  */
 public class Producto {
-    // atributos
+    // Atributos
     private String nombre;
     private int cantidad;
     private double precio;
@@ -17,16 +17,9 @@ public class Producto {
     // estados: existente (true), agotado (false)
     private boolean estado;
     
-    // toString
-
-    @Override
-    public String toString() {
-        return "Producto{" + "nombre=" + nombre + ", cantidad=" + cantidad + ", precio=" + precio + ", tipo=" + tipo + ", estado=" + estado + '}';
-    }    
-    
-    // constructor
+    // Constructores
     public Producto() {
-    }    
+    }
     
     public Producto(String nombre, int cantidad, double precio, String tipo, boolean estado) {
         this.nombre = nombre;
@@ -34,9 +27,25 @@ public class Producto {
         this.precio = precio;
         this.tipo = tipo;
         this.estado = estado;
-    }    
+    }
     
-    // getters and setters
+    // Métodos de comportamiento
+    public double calcularValorTotal() {
+        return precio * cantidad;
+    }
+    
+    public boolean isDisponible() {
+        return estado && cantidad > 0;
+    }
+    
+    // Método toString
+    @Override
+    public String toString() {
+        return "Producto{" + "nombre=" + nombre + ", cantidad=" + cantidad + 
+               ", precio=" + precio + ", tipo=" + tipo + ", estado=" + estado + '}';
+    }
+    
+    // Getters y Setters
     public String getNombre() {
         return nombre;
     }
@@ -75,10 +84,5 @@ public class Producto {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
-    }
-    
-    // comportamiento (metodos o funciones): agregar, quitar
-    public double calcularValorTotal() {
-        return precio * cantidad;
     }
 }
